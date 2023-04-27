@@ -32,7 +32,7 @@ public class Schedule extends Encoding {
     }
 
     /** Start time of the given task. */
-    public int startTime(Task task) {
+    public  int startTime(Task task) {
         return startTime(task.job, task.task);
     }
 
