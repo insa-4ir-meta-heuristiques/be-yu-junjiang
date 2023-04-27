@@ -3,10 +3,14 @@ package jobshop.encodings;
 import jobshop.Instance;
 import jobshop.solvers.Solver;
 import jobshop.solvers.BasicSolver;
+import jobshop.solvers.neighborhood.Nowicki;
 import org.junit.Test;
 
+import javax.xml.transform.stream.StreamSource;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 public class BasicSolverTests {
@@ -18,8 +22,10 @@ public class BasicSolverTests {
         Solver solver = new BasicSolver();
         Optional<Schedule> result = solver.solve(instance, System.currentTimeMillis() + 10);
 
+
         assert result.isPresent() : "The solver did not find a solution";
-        // extract the schedule associated to the solution
+
+                // extract the schedule associated to the solution
         Schedule schedule = result.get();
         assert  schedule.isValid() : "The solution is not valid";
 
